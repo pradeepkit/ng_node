@@ -16,6 +16,7 @@ let Employee = new Schema({
     },
     designation: {
         type: String
-    }}, {collection: 'employees'})
+    }},
+     {collection: 'employees'})
 
     module.exports = mongoose.model('Employee', Employee)
