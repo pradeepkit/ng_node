@@ -27,8 +27,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(cors()); 
-app.use(express.static(path.join(__dirname, './dist/frontend')));
-app.use('/', express.static(path.join(__dirname, './dist/frontend ')));
+app.use(express.static(path.join(__dirname, './dist')));
+app.use('/', express.static(path.join(__dirname, './dist')));
 app.use('/', apiRouter)
 
 const port = process.env.PORT || 3000;
