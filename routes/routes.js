@@ -15,7 +15,7 @@ apiRouter.post('/api/update/:id', employeeMiddleware.updateEmployee);
 apiRouter.delete('/api/delete/:id', employeeMiddleware.deleteEmployee);
 
 apiRouter.post('/api/student_reg', studentMiddleware.studentReg);
-apiRouter.post('/api/student', studentMiddleware.getStudent);
+apiRouter.get('/api/student', studentMiddleware.getStudent);
 apiRouter.get('/api/student/:id', studentMiddleware.getStudentById);
 
 apiRouter.post('/signin', signIn);

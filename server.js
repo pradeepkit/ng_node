@@ -10,19 +10,12 @@ const cookieParser = require('cookie-parser');
 
 
 // Connecting with mongo db
-
-// mongoose.connect("paste db link", {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 mongoose.Promise = global.Promise;
-mongoose.connect(dbConfig.db, {
-//    useNewUrlParser: true
-   useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true 
-    }).then(() => {
-        console.log('Database sucessfully connected')
-    },
-    error => {
-        console.log('Database could not connected: ' + error)
-    });
-    
+ mongoose.connect(dbConfig.db , { useNewUrlParser: true }).then(()=>{
+    console.log('Database sucessfully connected');
+},error => {
+    console.log('Database could not connected: ' + error)
+});  
 
 // Setting up port with express js
 // const employeeRoute = require('./routes/employee.route')      

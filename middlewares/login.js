@@ -12,6 +12,7 @@ function login(req, res){
     let loginData = {
         email : req.body.email,
     }
+    const email = req.body.email;
     Student.find(loginData, (error, data) => {
         if(error){
             let value = {
@@ -34,23 +35,25 @@ function login(req, res){
                         res.json(resData)
                      } 
                      else{
-                        let resData = {
-                            msg: 'SuccessFully Login',
-                            status: 200,
-                            data: data, 
-                            token: jwt.sign({ email: data.email, fullName: data.name, _id: data._id}, 'RESTFULAPIs'),    
-                            login_status: 1
-                        }
-                        // Create a new token with the username in the payload
+                         
+                         // Create a new token with the username in the payload
                             // and which expires 300 seconds after issue
-                            const token = jwt.sign(resData.data.email , jwtKey, {
+                            const token = jwt.sign( {email} , jwtKey, {
                                 algorithm: 'HS256',
                                 expiresIn: jwtExpirySeconds
                             })
                             console.log('token:', token)
                             // set the cookie as the token string, with a similar max age as the token
                             // here, the max age is in milliseconds, so we multiply by 1000
-                            res.cookie('token', token, { maxAge: jwtExpirySeconds * 1000 });                            
+                            res.cookie('token', token, { maxAge: jwtExpirySeconds * 1000 });  
+                        let resData = {
+                            msg: 'SuccessFully Login',
+                            status: 200,
+                            data: data,  
+                            token: token,  
+                            login_status: 1
+                        }
+                                                  
                             res.json(resData);
                             res.end();
                         }
@@ -58,7 +61,8 @@ function login(req, res){
                     let resData = {
                         msg: 'Credentials is incorrect',
                         status: 400,
-                        data: [],        
+                        data: [],   
+                             
                         login_status: 0  
                     }
                     res.json(resData)

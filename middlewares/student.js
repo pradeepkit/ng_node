@@ -43,9 +43,15 @@ function student_reg (req, res) {
       })    
 }
 
+// find().sort(['updatedAt', 1]);
+
+
   // Get All Employees get '/'
+
+  // Post.find({}).sort('field').exec(function(err, docs) { ... });
+
   function get_student_list (req, res, next){
-    Student.find((error, data) => {
+    Student.find({}).sort('roll_no').exec((error, data) => {
       if (error) {
         return next(error);
       } else {
