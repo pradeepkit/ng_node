@@ -14,7 +14,8 @@ apiRouter.get('/api/read/:id', employeeMiddleware.getEmployeeById);
 apiRouter.post('/api/update/:id', employeeMiddleware.updateEmployee);
 apiRouter.delete('/api/delete/:id', employeeMiddleware.deleteEmployee);
 
-apiRouter.post('/api/student_reg', studentMiddleware.studentReg);
+// apiRouter.post('/api/student_reg', studentMiddleware.studentReg);
+apiRouter.post('/api/student/create', studentMiddleware.studentReg);
 apiRouter.get('/api/student', studentMiddleware.getStudent);
 apiRouter.get('/api/student/:id', studentMiddleware.getStudentById);
 
@@ -23,6 +24,9 @@ apiRouter.get('/welcome', welcome);
 apiRouter.post('/refresh', refresh);
 
 apiRouter.post('/api/login', loginMiddleware.login);
+// apiRouter.get('/api/logout', loginMiddleware.logout);
+// apiRouter.post('/api/logout', loginMiddleware.logout);
+// '/logout
 // apiRouter.post('/api/student_reg', studentMiddleware.studentReg);
 
 

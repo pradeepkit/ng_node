@@ -51,6 +51,7 @@ function student_reg (req, res) {
   // Post.find({}).sort('field').exec(function(err, docs) { ... });
 
   function get_student_list (req, res, next){
+    console.log('hello', req);
     Student.find({}).sort('roll_no').exec((error, data) => {
       if (error) {
         return next(error);

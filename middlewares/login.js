@@ -2,13 +2,11 @@
 
 const Student = require('../models/Student');
 const jwt = require('jsonwebtoken')
-
 const jwtKey = 'my_secret_key'
-const jwtExpirySeconds = 300
-
-
+const jwtExpirySeconds = 300;
 
 function login(req, res){
+    // console.log(req);
     let loginData = {
         email : req.body.email,
     }
@@ -32,7 +30,8 @@ function login(req, res){
                             data: [] , 
                             login_status: 0     
                         }
-                        res.json(resData)
+                        res.status(404).send(resData);
+                        // res.json(resData);
                      } 
                      else{
                          
@@ -61,11 +60,12 @@ function login(req, res){
                     let resData = {
                         msg: 'Credentials is incorrect',
                         status: 400,
-                        data: [],   
-                             
+                        data: [],                                
                         login_status: 0  
                     }
-                    res.json(resData)
+                    // res.json(resData)
+                    res.status(404).send(resData);
+
                 }    
             }  else{
                 let resData = {
@@ -74,13 +74,31 @@ function login(req, res){
                     data: [],
                     login_status: 0          
                 }
-                res.json(resData)
+                // res.json(resData)
+                res.status(404).send(resData);
             } 
             
         }
     } )
 }
+// router.get('/logout', 
+
+/* function logout(req, res){
+    console.log('>...>..', req);
+    res.send('helo')
+    cookie = req.cookies;
+    for (var prop in cookie) {
+        if (!cookie.hasOwnProperty(prop)) {
+            continue;
+        }    
+        res.cookie(prop, '', {expires: new Date(0)});
+    }
+    res.send(res);
+    res.redirect('/login');
+    console.log('>...>..', req);
+} */
 
 module.exports = {
-    login: login
+    login,
+    // logout
 } 
