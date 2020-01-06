@@ -14,6 +14,7 @@ import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
 import { httpInterceptorProviders } from './http-interceptors/index';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,6 +41,7 @@ import { MaterialModule } from './material/material.module';
     HttpClientModule,
     DeviceDetectorModule.forRoot(),
     // HttpModule,
+    ModalModule.forRoot(),
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule

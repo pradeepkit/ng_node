@@ -15,7 +15,7 @@ function student_reg (req, res) {
         name: req.body.name,
         roll_no: req.body.roll_no,
         password: 'password',
-        registraion_no: req.body.registraion_no,
+        registraion_no: req.body.registraion_no,        
         class: req.body.class,
         father_name: req.body.father_name,
         mother_name: req.body.mother_name,
@@ -43,15 +43,8 @@ function student_reg (req, res) {
       })    
 }
 
-// find().sort(['updatedAt', 1]);
-
-
-  // Get All Employees get '/'
-
-  // Post.find({}).sort('field').exec(function(err, docs) { ... });
-
   function get_student_list (req, res, next){
-    console.log('hello', req);
+    // console.log('hello', req);
     Student.find({}).sort('roll_no').exec((error, data) => {
       if (error) {
         return next(error);
@@ -93,8 +86,45 @@ function student_reg (req, res) {
       }
     }).lean();
   }
+
+  const editStudentById = (req, res) =>{
+    console.log('req.params.id', req.params.id);
+
+    let studentData = {
+      name: req.body.name,
+      // roll_no: req.body.roll_no,
+      password: 'password',
+      // registraion_no: req.body.registraion_no,
+      class: req.body.class,
+      father_name: req.body.father_name,
+      mother_name: req.body.mother_name,
+      guardian_name: req.body.guardian_name,
+      occupation: req.body.occupation,
+      // email: req.body.email,
+      address: req.body.address,
+      city: req.body.city,
+      state: req.body.state,
+      mobile_no: req.body.mobile_no,
+      pin_code: req.body.pin_code,
+      image: req.body.image,
+      description: req.body.description,
+  }
+  Student.findOneAndUpdate({ _id: req.params.id }, studentData, {new: true}, (err, result) =>{
+          if(err){
+              return res.send(err);
+          }
+          let resData = {
+            status: 200,
+            msg: 'Modifiy',
+            data: result,  
+          }
+          res.json(resData);
+      });
+
+  }
 module.exports = {
     studentReg : student_reg,
     getStudent : get_student_list,
-    getStudentById : get_student_list_byId
+    getStudentById : get_student_list_byId,
+    editStudentById: editStudentById
   };

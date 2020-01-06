@@ -1,4 +1,5 @@
 const studentMiddleware = require('../middlewares/student');
+const teacherMiddleware = require('../middlewares/teacher');
 const employeeMiddleware = require('../middlewares/employee');
 const loginMiddleware = require('../middlewares/login');
 const { signIn, welcome, refresh } = require('../middlewares/handlers')
@@ -18,6 +19,11 @@ apiRouter.delete('/api/delete/:id', employeeMiddleware.deleteEmployee);
 apiRouter.post('/api/student/create', studentMiddleware.studentReg);
 apiRouter.get('/api/student', studentMiddleware.getStudent);
 apiRouter.get('/api/student/:id', studentMiddleware.getStudentById);
+apiRouter.put('/api/student/:id', studentMiddleware.editStudentById);
+
+// TEACHER REGISTRATION
+apiRouter.post('/api/teacher/create', teacherMiddleware.teacherReg);
+apiRouter.get('/api/teacher/list', teacherMiddleware.getTeacherList);
 
 apiRouter.post('/signin', signIn);
 apiRouter.get('/welcome', welcome);

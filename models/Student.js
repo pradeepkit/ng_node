@@ -19,7 +19,7 @@ Student = new Schema({
     registraion_no: {
         type: String,
         required: true,
-        unique: true
+        unique: true,        
     },
     class: {
         type: String,
@@ -27,6 +27,19 @@ Student = new Schema({
     },
     father_name: {
         type: String,
+        required: true
+    },
+    teacher_name: { 
+        type: 'ObjectId', 
+        ref: 'Teacher' 
+
+    },
+    created_by: { 
+        type: 'ObjectId', 
+        ref: 'Admin'
+    },
+    data_of_birth: { 
+        type: Date,
         required: true
     },
     mother_name: {
@@ -73,6 +86,7 @@ Student = new Schema({
         type: String,
         required: true
     },
+
     cteate_on: {
         type: String,
         required: true
