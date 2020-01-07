@@ -1,0 +1,46 @@
+<div class="container">
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="data.name" placeholder="Enter Name">
+        </div>
+        <div class="form-group col-sm-4">
+            <label for="father_name">Father Name</label>
+            <input type="text" class="form-control" id="father_name" [(ngModel)]="data.father_name" placeholder="Enter Father Name">
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="father_name">Mother Name</label>
+          <input type="text" class="form-control" id="mother_name" [(ngModel)]="data.mother_name" placeholder="Enter Father Name">
+      </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" id="email" [(ngModel)]="data.email" placeholder="Enter Name">
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="password">Password</label>
+          <input type="text" class="form-control" id="password" [(ngModel)]="data.password" placeholder="Enter Name">
+        </div>
+        <div class="form-group col-sm-4">
+            <label for="address">Mobile No</label>
+            <input type="text" class="form-control" id="mobile_no" [(ngModel)]="data.mobile_no" placeholder="Enter Name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="data.name" placeholder="Enter Name">
+        </div>
+        <div class="form-group col-sm-4">
+            <label for="father_name">Father Name</label>
+            <input type="text" class="form-control" id="father_name" [(ngModel)]="data.father_name" placeholder="Enter Father Name">
+        </div>
+        <div class="form-group col-sm-4">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" [(ngModel)]="data.address" placeholder="Enter Name">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" (click)="update(data)">Update</button>
+      <button type="submit" class="btn btn-warning ml-1" [routerLink]="[ '/admin/students']">Cancel</button>
+</div>

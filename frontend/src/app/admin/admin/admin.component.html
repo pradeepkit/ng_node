@@ -1,0 +1,55 @@
+
+<section class="dashboard-wrap">
+  <div class=" row">
+    <div class="col-md-2 dash-left">
+      <div class="user-panel">
+        <div class="image col-md-12">
+          <img  class="img-circle" alt="User Image" src="/assets/images/user.png">
+        </div>
+        <div class="info col-md-12">
+          <p class="">School Admin</p>
+          <a href="#" class=""><i class="fa fa-circle text-success"></i>Admin School</a>
+        </div>
+      </div>
+      <hr style="width: 100%;margin-top: 10px;margin-bottom: 10px;">
+      <div class="">
+        <ul>
+            <li routerLink="./" routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }">
+
+              <span><i class="fa fa-home" aria-hidden="true"></i> &nbsp;Dashboard</span></li>
+            <li routerLink="./blogs" routerLinkActive="active"><span> <i class="fa fa-user" aria-hidden="true"></i> &nbsp;User Profile</span></li>
+            <li routerLink="./students" routerLinkActive="active"><span><i class="fa fa-address-card" aria-hidden="true"></i> &nbsp;Students</span> </li>
+            <li routerLink="./categories" routerLinkActive="active"><span><i class="fa fa-address-card" aria-hidden="true"></i> &nbsp;Categories</span> </li>
+            <li routerLink="./pages" routerLinkActive="active"><span><i class="fa fa-address-card" aria-hidden="true"></i> &nbsp; Pages</span> </li>
+            <li [routerLink]="['/login']"><span><i class="fa fa-sign-out" aria-hidden="true"></i> &nbsp; Logout</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-10 dash-right">
+      <div class="">
+         <header class="admin-header">
+          <nav class="navbar navbar-expand-md navbar-dark" >
+            <div class="logo">
+                <h1 class="navbar-brand" routerLink="/" >{{title}}</h1>
+            </div>
+            <button class="btn btn-info  navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="menu collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav">
+                <li class="nav-item" routerLink="/" routerLinkActive="active">Home</li>
+                <li class="nav-item" routerLink="/page/about" routerLinkActive="active"  >About</li>
+                <li class="nav-item"  routerLink="/contact" routerLinkActive="active"  >Contact </li>
+                <li class="nav-item"  routerLink="/login" >Login</li>
+                <li class="nav-item"  routerLink="/admin" >Admin Dashboard</li>
+                <li class="nav-item" routerLink="/login" >Logout</li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>
